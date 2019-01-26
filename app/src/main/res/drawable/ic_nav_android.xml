@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 COSP
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:tint="?android:attr/colorControlNormal"
+    android:viewportWidth="24"
+    android:viewportHeight="24" >
+    <path
+        android:fillColor="#757575"
+        android:pathData="M 17.250424,16.82984 q -0.465495,0.203125 -0.846354,0.380859 -0.372396,0.177734 -0.981771,0.372396 -0.516276,0.160807 -1.125651,0.270833 -0.600912,0.11849 -1.328776,0.11849 -1.371094,0 -2.496745,-0.38086 Q 9.3539392,17.202236 8.5245121,16.381272 7.712012,15.577235 7.2549808,14.341558 6.7979495,13.097418 6.7979495,11.455491 q 0,-1.5572922 0.4401042,-2.7845058 0.4401042,-1.2272136 1.2695313,-2.0735678 0.8040365,-0.8209635 1.938151,-1.2526042 1.142578,-0.4316406 2.530599,-0.4316406 1.015625,0 2.022787,0.2454427 1.015625,0.2454427 2.251302,0.8632813 V 8.0108289 H 17.123471 Q 16.082455,7.1390841 15.058366,6.7412976 14.034278,6.3435112 12.866309,6.3435112 q -0.95638,0 -1.726562,0.313151 Q 10.378028,6.9613497 9.7771163,7.6130425 9.1931319,8.2478081 8.8630538,9.2211154 8.5414392,10.185959 8.5414392,11.455491 q 0,1.328776 0.3554687,2.285156 0.3639323,0.95638 0.9309896,1.557292 0.5924475,0.626302 1.3795575,0.930989 0.795573,0.296224 1.675781,0.296224 1.210287,0 2.268229,-0.414713 1.057943,-0.414714 1.980469,-1.244141 h 0.11849 z" />
+</vector>
