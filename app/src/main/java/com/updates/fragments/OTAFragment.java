@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +24,7 @@ import com.airbnb.lottie.LottieDrawable;
 import com.updates.R;
 import com.updates.models.RebootDialog;
 import com.updates.models.Update;
+import com.updates.utils.UpdatesApiInterface;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -40,9 +40,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
 
+import static android.os.Environment.getExternalStorageDirectory;
 import static com.updates.utils.ORSUtils.InstallZip;
 import static com.updates.utils.OTAUtils.getDeviceName;
 import static com.updates.utils.OTAUtils.getProp;
@@ -55,7 +54,6 @@ public class OTAFragment extends Fragment {
             .build();
     private UpdatesApiInterface apiInterface = retrofit.create(UpdatesApiInterface.class);
     private LottieAnimationView lottieAnimationView;
-    private Button checkUpdateButton;
     private Button downloadButton, checkChangeLogButton;
     private TextView updateStatus, changeLogText, changeLogTitleText, upToDate;
     private String deviceName;
@@ -94,9 +92,10 @@ public class OTAFragment extends Fragment {
 
         call.enqueue(new Callback<Update>() {
             @Override
-            public void onResponse(Call<Update> call, Response<Update> response) {
+            public void onResponse(@NonNull Call<Update> call, @NonNull Response<Update> response) {
+                assert response.body() != null;
                 downloadUrl = response.body().getDownload();
-                file = new File(Environment.getExternalStorageDirectory() + "/OTA/" + FilenameUtils.getName(Uri.parse(downloadUrl).getPath()));
+                file = new File(getExternalStorageDirectory() + "/OTA/" + FilenameUtils.getName(Uri.parse(downloadUrl).getPath()));
                 if (file.exists()) {
                     downloadButton.setText(getString(R.string.flash_update));
                 } else {
@@ -131,7 +130,7 @@ public class OTAFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Update> call, Throwable t) {
+            public void onFailure(@NonNull Call<Update> call, @NonNull Throwable t) {
                 Log.w(TAG, "onFailure: ", t);
             }
         });
@@ -148,7 +147,7 @@ public class OTAFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ota, container, false);
     }
@@ -157,7 +156,7 @@ public class OTAFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         lottieAnimationView = view.findViewById(R.id.lottie_anim);
-        checkUpdateButton = view.findViewById(R.id.test_button);
+        Button checkUpdateButton = view.findViewById(R.id.test_button);
         checkChangeLogButton = view.findViewById(R.id.changelog_button);
         downloadButton = view.findViewById(R.id.download_button);
         updateStatus = view.findViewById(R.id.update_status);
@@ -170,20 +169,18 @@ public class OTAFragment extends Fragment {
         updateStatus.setText(getString(R.string.update_uptodate));
 
 
-        checkUpdateButton.setOnClickListener(l -> {
-            checkUpdate();
-        });
+        checkUpdateButton.setOnClickListener(l -> checkUpdate());
         downloadButton.setOnClickListener(l -> {
             if (file.exists()) {
-                downloadButton.setText("Flash update");
+                downloadButton.setText(getString(R.string.flash_update_button));
                 InstallZip(file.getAbsolutePath());
                 RebootDialog dialog = new RebootDialog();
-                dialog.show(getFragmentManager(), null);
+                dialog.show(requireFragmentManager(), null);
 
             } else {
                 Uri url = Uri.parse(downloadUrl);
                 DownloadManager.Request request = new DownloadManager.Request(url);
-                File direct = new File(Environment.getExternalStorageDirectory() + "/OTA");
+                File direct = new File(getExternalStorageDirectory() + "/OTA");
                 if (!direct.exists()) {
                     direct.mkdirs();
                 }
@@ -204,8 +201,5 @@ public class OTAFragment extends Fragment {
 
     }
 
-    public interface UpdatesApiInterface {
-        @GET("checkUpdate")
-        Call<Update> checkUpdate(@Query("device") String device, @Query("date") int date);
-    }
+
 }

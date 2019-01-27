@@ -3,6 +3,7 @@ package com.updates.models;
 import android.app.Dialog;
 import android.os.Bundle;
 
+import com.updates.R;
 import com.updates.utils.OTAUtils;
 
 import androidx.annotation.NonNull;
@@ -15,9 +16,9 @@ public class RebootDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-        builder.setMessage("Update already downloaded. Do you want to flash it?")
-                .setPositiveButton("Reboot", (dialog, which) -> OTAUtils.rebootRecovery(requireContext()))
-                .setNegativeButton("Cancel", ((dialog, which) -> dialog.dismiss()));
+        builder.setMessage(getString(R.string.dialog_already_downloaded))
+                .setPositiveButton(getString(R.string.dialog_reboot_flash), (dialog, which) -> OTAUtils.rebootRecovery(requireContext()))
+                .setNegativeButton(getString(R.string.dialog_cancel_flash), ((dialog, which) -> dialog.dismiss()));
         return builder.create();
 
     }

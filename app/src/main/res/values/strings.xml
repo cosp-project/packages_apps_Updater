@@ -37,5 +37,9 @@
     <string name="toast_update_service_stopped">Updater service stopped</string>
     <string name="api_base_url" translatable="false">https://cosp-webserver.herokuapp.com/</string>
     <string name="prop_device_name" translatable="false">org.cosp.device</string>
+    <string name="flash_update_button">Flash update</string>
+    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
+    <string name="dialog_reboot_flash">Flash and reboot</string>
+    <string name="dialog_cancel_flash">Cancel</string>
 
 </resources>
