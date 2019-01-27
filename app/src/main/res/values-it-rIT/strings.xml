@@ -23,9 +23,9 @@
     <string name="notif_update_available">Aggiornamento disponibile!</string>
     <string name="notif_body_ota_available">Aggiornamento OTA disponibile per %1$s</string>
     <string name="toast_update_service_started">Servizio di aggiornamento avviato</string>
-    <string name="toast_update_service_stopped">Updater service stopped</string>
+    <string name="toast_update_service_stopped">Servizio di aggiornamento fermato</string>
     <string name="flash_update_button">Installa aggiornamento</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
-    <string name="dialog_reboot_flash">Flash and reboot</string>
-    <string name="dialog_cancel_flash">Cancel</string>
+    <string name="dialog_already_downloaded">Aggiornamento già scaricato. Vuoi installarlo?</string>
+    <string name="dialog_reboot_flash">Installa e riavvia</string>
+    <string name="dialog_cancel_flash">Annulla</string>
 </resources>
