@@ -45,6 +45,7 @@ import retrofit2.http.Query;
 
 import static com.updates.utils.ORSUtils.InstallZip;
 import static com.updates.utils.OTAUtils.getDeviceName;
+import static com.updates.utils.OTAUtils.getProp;
 
 public class OTAFragment extends Fragment {
     private static final String TAG = "OTAFragment";
@@ -89,7 +90,7 @@ public class OTAFragment extends Fragment {
         changeLogTitleText.setVisibility(View.GONE);
         downloadButton.setVisibility(View.INVISIBLE);
         downloadButton.setClickable(false);
-        Call<Update> call = apiInterface.checkUpdate(deviceName, 20190121);
+        Call<Update> call = apiInterface.checkUpdate(deviceName, Integer.parseInt(getProp("org.cosp.build_date")));
 
         call.enqueue(new Callback<Update>() {
             @Override
