@@ -54,7 +54,7 @@ public class OTAFragment extends Fragment {
             .build();
     private UpdatesApiInterface apiInterface = retrofit.create(UpdatesApiInterface.class);
     private LottieAnimationView lottieAnimationView;
-    Button checkUpdateButton;
+    private Button checkUpdateButton;
     private Button downloadButton, checkChangeLogButton;
     private TextView updateStatus, changeLogText, changeLogTitleText, upToDate;
     private String deviceName;
@@ -64,7 +64,7 @@ public class OTAFragment extends Fragment {
     }
 
     private String downloadUrl;
-    BroadcastReceiver onComplete = new BroadcastReceiver() {
+    private BroadcastReceiver onComplete = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "com.updates.downloadID")
@@ -116,8 +116,9 @@ public class OTAFragment extends Fragment {
                     downloadButton.setClickable(true);
                 } else {
                     lottieAnimationView.pauseAnimation();
-                    lottieAnimationView.setAnimation("boom.json");
+                    lottieAnimationView.setAnimation("success.json");
                     lottieAnimationView.playAnimation();
+                    lottieAnimationView.setRepeatCount(0);
                     updateStatus.setText(getString(R.string.up_to_date_device));
                     changeLogText.setVisibility(View.GONE);
                     changeLogTitleText.setVisibility(View.GONE);
