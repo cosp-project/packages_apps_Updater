@@ -4,7 +4,7 @@
     <string name="app_name">COSP Updates</string>
     <string name="title_rom">COSP</string>
     <string name="title_gapps">Store</string>
-    <string name="title_settings">Settings</string>
+    <string name="title_settings">सेटिंग्स</string>
     <string name="update_available">Update available for %1$s!</string>
     <string name="update_checking">Checking for update…</string>
     <string name="update_uptodate">You are up to date.</string>
