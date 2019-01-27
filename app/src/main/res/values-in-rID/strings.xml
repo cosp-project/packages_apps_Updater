@@ -9,7 +9,7 @@
     <string name="update_checking">Memeriksa pembaruan…</string>
     <string name="update_uptodate">Anda sudah mutakhir.</string>
     <string name="toast_message">Tidak ada peramban yang terpasang</string>
-    <string name="permission_not_enabled">Updater tidak memiliki perizinan untuk menyimpan berkas. Silakan beri izin akses penyimpnan</string>
+    <string name="permission_not_enabled">Pembaruan tidak memiliki perizinan untuk menyimpan berkas. Silakan beri izin akses penyimpnan</string>
     <string name="check_for_updates">Memerimsa pembaruan</string>
     <string name="check_update_log">Memeriksa log pembaruan</string>
     <string name="your_system_is_up_to_date">System anda paling mutakhir</string>
@@ -21,11 +21,11 @@
     <string name="dm_download_update">Mengunduh pembaruan…</string>
     <string name="toast_downloading">Mengunduh…</string>
     <string name="notif_update_available">Pembaruan tersedia!</string>
-    <string name="notif_body_ota_available">OTa tersedia untuk %1$s</string>
-    <string name="toast_update_service_started">Updater service started</string>
-    <string name="toast_update_service_stopped">Updater service stopped</string>
+    <string name="notif_body_ota_available">OTA tersedia untuk %1$s</string>
+    <string name="toast_update_service_started">Layanam pembaruan dimulai</string>
+    <string name="toast_update_service_stopped">Layanam pembaruan berhenti</string>
     <string name="flash_update_button">Pasang pembaruan</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
-    <string name="dialog_reboot_flash">Flash and reboot</string>
-    <string name="dialog_cancel_flash">Cancel</string>
+    <string name="dialog_already_downloaded">Pembaruan sudah terunduh. Apa anda ingin memasangnya?</string>
+    <string name="dialog_reboot_flash">Pasang dan matikan ulang</string>
+    <string name="dialog_cancel_flash">Batal</string>
 </resources>
