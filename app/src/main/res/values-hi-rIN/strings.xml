@@ -20,10 +20,10 @@
     <string name="updates_arrived_channel">com.updates.updates_arrived</string>
     <string name="update_finished_notification">डाउनलोड समाप्त हो गया</string>
     <string name="dm_download_update">अपडेट डाउनलोड हो रहा है...</string>
-    <string name="toast_downloading">Downloading…</string>
-    <string name="notif_update_available">Update available!</string>
-    <string name="notif_body_ota_available">OTA available for %1$s</string>
-    <string name="pusher_channel_name">cosp-updates</string>
+    <string name="toast_downloading">डाउनलोड हो रहा है</string>
+    <string name="notif_update_available">अपडेट उपलब्ध है</string>
+    <string name="notif_body_ota_available">%1$s के लिए अपडेट उपलब्ध है</string>
+    <string name="pusher_channel_name">cosp-उपडेट्स</string>
     <string name="pusher_event">updates-pushed</string>
     <string name="toast_update_service_started">Updater service started</string>
     <string name="toast_update_service_stopped">Updater service stopped</string>
