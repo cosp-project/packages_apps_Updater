@@ -16,11 +16,11 @@
 
     <string name="permission_not_enabled">Aktualizator nie ma uprawnień do zapisywania plików. Nadaj mu odpowiednie uprawnienia</string>
     <string name="check_for_updates">Sprawdź dostępność aktualizacji</string>
-    <string name="check_update_log">Sprawdź log aktualizacji</string>
+    <string name="check_update_log">Sprawdź zmiany w aktualizacji</string>
     <string name="your_system_is_up_to_date">Twój system jest aktualny</string>
     <string name="up_to_date_device">Masz najświeższą wersję ROM-u.</string>
     <string name="changelog">Lista zmian</string>
     <string name="download_update">Pobierz aktualizację</string>
-    <string name="flash_update">Wgraj aktualizację</string>
+    <string name="flash_update">Zainstaluj aktualizację</string>
 
 </resources>
