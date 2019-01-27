@@ -22,7 +22,7 @@
     <string name="changelog">Changelog</string>
     <string name="download_update">Download update</string>
     <string name="flash_update">Flash update</string>
-    <string name="updates_arrived_channel">com.updates.updates_arrived</string>
+    <string name="updates_arrived_channel" translatable="false">com.updates.updates_arrived</string>
     <string name="update_finished_notification">Download finished.</string>
     <string name="prop_build_date" translatable="false">org.cosp.build_date</string>
     <string name="dm_download_update">Downloading update…</string>
@@ -30,8 +30,8 @@
     <string name="notif_channel_download" translatable="false">com.updates.downloadID</string>
     <string name="notif_update_available">Update available!</string>
     <string name="notif_body_ota_available">OTA available for %1$s</string>
-    <string name="pusher_channel_name">cosp-updates</string>
-    <string name="pusher_event">updates-pushed</string>
+    <string name="pusher_channel_name" translatable="false">cosp-updates</string>
+    <string name="pusher_event" translatable="false">updates-pushed</string>
     <string name="notif_channel_new_update" translatable="false">com.updates.updates_arrived</string>
     <string name="toast_update_service_started">Updater service started</string>
     <string name="toast_update_service_stopped">Updater service stopped</string>
