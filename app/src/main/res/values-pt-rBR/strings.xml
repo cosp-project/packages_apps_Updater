@@ -17,14 +17,15 @@
     <string name="changelog">Histórico de mudanças</string>
     <string name="download_update">Baixar atualização</string>
     <string name="flash_update">Instlaar atualização</string>
-    <string name="updates_arrived_channel">com.updates.updates_arrived</string>
     <string name="update_finished_notification">Download concluído.</string>
     <string name="dm_download_update">Baixando a atualização…</string>
     <string name="toast_downloading">Baixando…</string>
     <string name="notif_update_available">Atualização disponível!</string>
     <string name="notif_body_ota_available">Uma atualização OTA está disponível para o %1$s</string>
-    <string name="pusher_channel_name">cosp-updates</string>
-    <string name="pusher_event">updates-pushed</string>
     <string name="toast_update_service_started">Serviço de atualização iniciado</string>
     <string name="toast_update_service_stopped">Serviço de atualização parado</string>
+    <string name="flash_update_button">Instlaar atualização</string>
+    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
+    <string name="dialog_reboot_flash">Flash and reboot</string>
+    <string name="dialog_cancel_flash">Cancel</string>
 </resources>
