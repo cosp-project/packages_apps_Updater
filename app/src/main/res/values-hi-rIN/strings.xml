@@ -17,14 +17,15 @@
     <string name="changelog">परिवर्तन लॉग</string>
     <string name="download_update">अपडेट डाउनलाेड करें</string>
     <string name="flash_update">अपडेट फ़्लैश करें</string>
-    <string name="updates_arrived_channel">com.updates.updates_arrived</string>
     <string name="update_finished_notification">डाउनलोड समाप्त हो गया</string>
     <string name="dm_download_update">अपडेट डाउनलोड हो रहा है...</string>
     <string name="toast_downloading">डाउनलोड हो रहा है</string>
     <string name="notif_update_available">अपडेट उपलब्ध है</string>
     <string name="notif_body_ota_available">%1$s के लिए अपडेट उपलब्ध है</string>
-    <string name="pusher_channel_name">cosp-उपडेट्स</string>
-    <string name="pusher_event">updates-pushed</string>
     <string name="toast_update_service_started">Updater service started</string>
     <string name="toast_update_service_stopped">Updater service stopped</string>
+    <string name="flash_update_button">अपडेट फ़्लैश करें</string>
+    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
+    <string name="dialog_reboot_flash">Flash and reboot</string>
+    <string name="dialog_cancel_flash">Cancel</string>
 </resources>
