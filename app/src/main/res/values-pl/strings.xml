@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Aktualizacje COSP</string>
+    <string name="title_rom">COSP</string>
+    <string name="title_gapps">Sklep</string>
+    <string name="title_settings">Ustawienia</string>
+
+    <string name="update_available">Dostępna jest aktualizacja dla %1$s!</string>
+    <string name="update_checking">Sprawdzanie dostępności aktualizacji…</string>
+    <string name="update_uptodate">Twoja wersja jest aktualna.</string>
+
+    <string name="size_bytes">%1$d B</string>
+    <string name="size_kb">%1$s KB</string>
+    <string name="size_mb">%1$s MB</string>
+
+    <string name="toast_message">Nie masz zainstalowanej przeglądarki</string>
+
+    <string name="permission_not_enabled">Aktualizator nie ma uprawnień do zapisywania plików. Nadaj mu odpowiednie uprawnienia</string>
+    <string name="check_for_updates">Sprawdź dostępność aktualizacji</string>
+    <string name="check_update_log">Sprawdź zmiany w aktualizacji</string>
+    <string name="your_system_is_up_to_date">Twój system jest aktualny</string>
+    <string name="up_to_date_device">Masz najświeższą wersję ROM-u.</string>
+    <string name="changelog">Lista zmian</string>
+    <string name="download_update">Pobierz aktualizację</string>
+    <string name="flash_update">Zainstaluj aktualizację</string>
+
+</resources>
