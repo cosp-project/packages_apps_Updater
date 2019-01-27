@@ -25,7 +25,7 @@
     <string name="toast_update_service_started">Usługa aktualizatora uruchomiona</string>
     <string name="toast_update_service_stopped">Usługa aktualizatora zatrzymana</string>
     <string name="flash_update_button">Zainstaluj aktualizację</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
-    <string name="dialog_reboot_flash">Flash and reboot</string>
-    <string name="dialog_cancel_flash">Cancel</string>
+    <string name="dialog_already_downloaded">Aktualizacja została już pobrana. Czy chcesz ją zainstalować?</string>
+    <string name="dialog_reboot_flash">Zainstaluj i zrestartuj telefon</string>
+    <string name="dialog_cancel_flash">Anuluj</string>
 </resources>
