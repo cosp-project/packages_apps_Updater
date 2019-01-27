@@ -17,14 +17,15 @@
     <string name="changelog">Changelog</string>
     <string name="download_update">Update herunterladen</string>
     <string name="flash_update">Installiere Update</string>
-    <string name="updates_arrived_channel">com.updates.updates_arrived</string>
     <string name="update_finished_notification">Download abgeschlossen.</string>
     <string name="dm_download_update">Lade Update herunter…</string>
     <string name="toast_downloading">Lade herunter…</string>
     <string name="notif_update_available">Aktualisierung verfügbar!</string>
     <string name="notif_body_ota_available">Update verfügbar für %1$s</string>
-    <string name="pusher_channel_name">cosp-updates</string>
-    <string name="pusher_event">updates-pushed</string>
     <string name="toast_update_service_started">Updater-Dienst gestartet</string>
     <string name="toast_update_service_stopped">Updater-Dienst gestoppt</string>
+    <string name="flash_update_button">Installiere Update</string>
+    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
+    <string name="dialog_reboot_flash">Flash and reboot</string>
+    <string name="dialog_cancel_flash">Cancel</string>
 </resources>
