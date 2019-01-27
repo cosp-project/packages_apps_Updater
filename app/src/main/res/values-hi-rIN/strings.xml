@@ -22,10 +22,10 @@
     <string name="toast_downloading">डाउनलोड हो रहा है</string>
     <string name="notif_update_available">अपडेट उपलब्ध है</string>
     <string name="notif_body_ota_available">%1$s के लिए अपडेट उपलब्ध है</string>
-    <string name="toast_update_service_started">Updater service started</string>
-    <string name="toast_update_service_stopped">Updater service stopped</string>
+    <string name="toast_update_service_started">उपडटेर सर्विस शुरू की गयी</string>
+    <string name="toast_update_service_stopped">उपडटेर सर्विस रोकी गयी</string>
     <string name="flash_update_button">अपडेट फ़्लैश करें</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
-    <string name="dialog_reboot_flash">Flash and reboot</string>
-    <string name="dialog_cancel_flash">Cancel</string>
+    <string name="dialog_already_downloaded">अपडेट पहले से डाउनलोड हुई है। क्या आप इसे फ़्लैश करना चाहते हैं?</string>
+    <string name="dialog_reboot_flash">फ़्लैश और रीबूट</string>
+    <string name="dialog_cancel_flash">निरस्त करें</string>
 </resources>
