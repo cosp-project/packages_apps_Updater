@@ -25,7 +25,7 @@
     <string name="toast_update_service_started">Updater-Dienst gestartet</string>
     <string name="toast_update_service_stopped">Updater-Dienst gestoppt</string>
     <string name="flash_update_button">Installiere Update</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
-    <string name="dialog_reboot_flash">Flash and reboot</string>
-    <string name="dialog_cancel_flash">Cancel</string>
+    <string name="dialog_already_downloaded">Update bereits heruntergeladen. Möchtest du die Datei installieren?</string>
+    <string name="dialog_reboot_flash">Installieren und Neustart</string>
+    <string name="dialog_cancel_flash">Abbrechen</string>
 </resources>
