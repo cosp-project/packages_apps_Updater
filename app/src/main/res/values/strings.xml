@@ -20,5 +20,8 @@
     <string name="your_system_is_up_to_date">Your system is up to date</string>
     <string name="up_to_date_device">You are up to date.</string>
     <string name="changelog">Changelog</string>
+    <string name="download_update">Download update</string>
+    <string name="flash_update">Flash update</string>
+    <string name="updates_arrived_channel">com.updates.updates_arrived</string>
 
 </resources>

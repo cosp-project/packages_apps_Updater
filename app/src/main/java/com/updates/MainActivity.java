@@ -1,17 +1,24 @@
 package com.updates;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.updates.fragments.OTAFragment;
+import com.updates.services.UpdateService;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.updates.utils.SingletonServiceChecker.IS_SERVICE_RUNNING;
+
 public class MainActivity extends AppCompatActivity {
     private static final int STORAGE_PERMISSION_CODE = 200;
+    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -20,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkStoragePermissions();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new OTAFragment()).commitNow();
+        Context context = this;
+        if (!IS_SERVICE_RUNNING) {
+            Intent intent1 = new Intent(context, UpdateService.class);
+            context.startService(intent1);
+            Log.i(TAG, "Started");
+        }
     }
 
     private void checkStoragePermissions() {

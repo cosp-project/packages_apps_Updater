@@ -40,6 +40,8 @@ public class ORSUtils {
 
     private static void WriteCommand(String command){
         try{
+            File file = new File(ors_path);
+
             FileWriter fw = new FileWriter(ors_path, true);
             fw.write(command + "\n");
             fw.close();
