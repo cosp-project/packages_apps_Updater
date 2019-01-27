@@ -8,9 +8,6 @@
     <string name="update_checking">Sprawdzanie dostępności aktualizacji…</string>
     <string name="update_uptodate">Twoja wersja jest aktualna.</string>
 
-    <string name="size_bytes">%1$d B</string>
-    <string name="size_kb">%1$s KB</string>
-    <string name="size_mb">%1$s MB</string>
 
     <string name="toast_message">Nie masz zainstalowanej przeglądarki</string>
 

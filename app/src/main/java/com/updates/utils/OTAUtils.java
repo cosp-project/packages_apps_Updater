@@ -73,7 +73,7 @@ public final class OTAUtils {
     }
 
     public static String getDeviceName(Context context) {
-        return OTAUtils.getProp("org.cosp.device");
+        return OTAUtils.getProp(context.getString(R.string.prop_device_name));
     }
 
     public static String getProp(String propName) {

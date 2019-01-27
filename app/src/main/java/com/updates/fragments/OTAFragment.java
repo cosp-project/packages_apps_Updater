@@ -50,7 +50,7 @@ import static com.updates.utils.OTAUtils.getProp;
 public class OTAFragment extends Fragment {
     private static final String TAG = "OTAFragment";
     private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://cosp-webserver.herokuapp.com/")
+            .baseUrl(getString(R.string.api_base_url))
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     private UpdatesApiInterface apiInterface = retrofit.create(UpdatesApiInterface.class);
@@ -68,10 +68,10 @@ public class OTAFragment extends Fragment {
     private BroadcastReceiver onComplete = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "com.updates.downloadID")
-                    .setContentTitle("Update finished.")
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, getString(R.string.notif_channel_download))
+                    .setContentTitle(getString(R.string.update_finished_notification))
                     .setContentText(FilenameUtils.getName(Uri.parse(downloadUrl).getPath()))
-                    .setStyle(new NotificationCompat.BigTextStyle().bigText("Updooot"))
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(FilenameUtils.getName(Uri.parse(downloadUrl).getPath())))
                     .setSmallIcon(R.drawable.ic_nav_settings);
             createNotificationChannel(context);
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
@@ -90,7 +90,7 @@ public class OTAFragment extends Fragment {
         changeLogTitleText.setVisibility(View.GONE);
         downloadButton.setVisibility(View.INVISIBLE);
         downloadButton.setClickable(false);
-        Call<Update> call = apiInterface.checkUpdate(deviceName, Integer.parseInt(getProp("org.cosp.build_date")));
+        Call<Update> call = apiInterface.checkUpdate(deviceName, Integer.parseInt(getProp(getString(R.string.prop_build_date))));
 
         call.enqueue(new Callback<Update>() {
             @Override
@@ -187,13 +187,13 @@ public class OTAFragment extends Fragment {
                 if (!direct.exists()) {
                     direct.mkdirs();
                 }
-                request.setDescription("Downloading update...");
+                request.setDescription(getString(R.string.dm_download_update));
                 request.setDestinationInExternalPublicDir("/OTA", FilenameUtils.getName(url.getPath()));
                 request.setTitle(FilenameUtils.getName(url.getPath()));
                 DownloadManager manager = (DownloadManager) requireContext().getSystemService(Context.DOWNLOAD_SERVICE);
                 manager.enqueue(request);
-                Toast.makeText(requireContext(), "Downloading...", Toast.LENGTH_SHORT).show();
-                updateStatus.setText("Downloading...");
+                Toast.makeText(requireContext(), getString(R.string.toast_downloading), Toast.LENGTH_SHORT).show();
+                updateStatus.setText(getString(R.string.toast_downloading));
                 lottieAnimationView.setAnimation("newAnimation.json");
                 lottieAnimationView.playAnimation();
 
