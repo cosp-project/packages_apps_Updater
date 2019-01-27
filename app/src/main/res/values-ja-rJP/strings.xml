@@ -17,14 +17,15 @@
     <string name="changelog">変更履歴</string>
     <string name="download_update">アップデートをダウンロード</string>
     <string name="flash_update">更新プログラムをインストールします</string>
-    <string name="updates_arrived_channel">com.updates.updates_arrived</string>
     <string name="update_finished_notification">ダウンロードが完了しました</string>
     <string name="dm_download_update">更新をダウンロード中…</string>
     <string name="toast_downloading">ダウンロード中…</string>
     <string name="notif_update_available">アップデートがあります！</string>
     <string name="notif_body_ota_available">%1$s の利用可能な更新</string>
-    <string name="pusher_channel_name">cosp-updates</string>
-    <string name="pusher_event">updates-pushed</string>
     <string name="toast_update_service_started">アップデータサービス開始</string>
     <string name="toast_update_service_stopped">アップデータサービスが停止しました</string>
+    <string name="flash_update_button">更新プログラムをインストールします</string>
+    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
+    <string name="dialog_reboot_flash">Flash and reboot</string>
+    <string name="dialog_cancel_flash">Cancel</string>
 </resources>
