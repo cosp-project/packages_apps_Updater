@@ -18,13 +18,13 @@
     <string name="download_update">Pobierz aktualizację</string>
     <string name="flash_update">Zainstaluj aktualizację</string>
     <string name="updates_arrived_channel">com.updates.updates_arrived</string>
-    <string name="update_finished_notification">Download finished.</string>
-    <string name="dm_download_update">Downloading update…</string>
-    <string name="toast_downloading">Downloading…</string>
-    <string name="notif_update_available">Update available!</string>
-    <string name="notif_body_ota_available">OTA available for %1$s</string>
+    <string name="update_finished_notification">Pobieranie zakończone.</string>
+    <string name="dm_download_update">Pobieranie aktualizacji…</string>
+    <string name="toast_downloading">Pobieranie…</string>
+    <string name="notif_update_available">Dostępna jest aktualizacja!</string>
+    <string name="notif_body_ota_available">Aktualizacja OTA dostępna dla %1$s</string>
     <string name="pusher_channel_name">cosp-updates</string>
     <string name="pusher_event">updates-pushed</string>
-    <string name="toast_update_service_started">Updater service started</string>
-    <string name="toast_update_service_stopped">Updater service stopped</string>
+    <string name="toast_update_service_started">Usługa aktualizatora uruchomiona</string>
+    <string name="toast_update_service_stopped">Usługa aktualizatora zatrzymana</string>
 </resources>
