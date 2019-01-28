@@ -25,7 +25,7 @@
     <string name="toast_update_service_started">Служба обновления запущена</string>
     <string name="toast_update_service_stopped">Служба обновления остановлена</string>
     <string name="flash_update_button">Установить обновление</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
-    <string name="dialog_reboot_flash">Flash and reboot</string>
-    <string name="dialog_cancel_flash">Cancel</string>
+    <string name="dialog_already_downloaded">Обновление загружено. Вы готовы к установке?</string>
+    <string name="dialog_reboot_flash">Установить и перезагрузить устройство</string>
+    <string name="dialog_cancel_flash">Отмена</string>
 </resources>
