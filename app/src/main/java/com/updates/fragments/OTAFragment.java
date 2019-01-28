@@ -2,8 +2,6 @@ package com.updates.fragments;
 
 
 import android.app.DownloadManager;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,11 +22,14 @@ import com.airbnb.lottie.LottieDrawable;
 import com.updates.R;
 import com.updates.models.RebootDialog;
 import com.updates.models.Update;
+import com.updates.utils.ABUpdater;
+import com.updates.utils.OTAUtils;
 import com.updates.utils.UpdatesApiInterface;
 
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
+import java.io.IOException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,24 +46,19 @@ import static android.os.Environment.getExternalStorageDirectory;
 import static com.updates.utils.ORSUtils.InstallZip;
 import static com.updates.utils.OTAUtils.getDeviceName;
 import static com.updates.utils.OTAUtils.getProp;
+import static com.updates.utils.OTAUtils.isABDevice;
+import static com.updates.utils.OTAUtils.isABUpdate;
 
 public class OTAFragment extends Fragment {
     private static final String TAG = "OTAFragment";
-    private Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(getString(R.string.api_base_url))
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-    private UpdatesApiInterface apiInterface = retrofit.create(UpdatesApiInterface.class);
+    private Retrofit retrofit;
+    private UpdatesApiInterface apiInterface;
     private LottieAnimationView lottieAnimationView;
     private Button downloadButton, checkChangeLogButton;
     private TextView updateStatus, changeLogText, changeLogTitleText, upToDate;
     private String deviceName;
-
-    public OTAFragment() {
-        // Required empty public constructor
-    }
-
     private String downloadUrl;
+    private ABUpdater abUpdater;
     private BroadcastReceiver onComplete = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -71,13 +67,25 @@ public class OTAFragment extends Fragment {
                     .setContentText(FilenameUtils.getName(Uri.parse(downloadUrl).getPath()))
                     .setStyle(new NotificationCompat.BigTextStyle().bigText(FilenameUtils.getName(Uri.parse(downloadUrl).getPath())))
                     .setSmallIcon(R.drawable.ic_nav_settings);
-            createNotificationChannel(context);
+            OTAUtils.createNotificationChannel(context, getString(R.string.notif_channel_download), "Download update");
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
             notificationManagerCompat.notify(6969, builder.build());
             downloadButton.setText(getString(R.string.flash_update));
         }
     };
+
+    public OTAFragment() {
+        // Required empty public constructor
+    }
     private File file;
+
+    private void initRetroFit() {
+        retrofit = new Retrofit.Builder()
+                .baseUrl(getString(R.string.api_base_url))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        apiInterface = retrofit.create(UpdatesApiInterface.class);
+    }
 
     private void checkUpdate() {
         updateStatus.setText(getString(R.string.update_checking));
@@ -136,15 +144,6 @@ public class OTAFragment extends Fragment {
         });
     }
 
-    private void createNotificationChannel(Context context) {
-        int importance = NotificationManager.IMPORTANCE_HIGH;
-        NotificationChannel channel = new NotificationChannel("com.updates.downloadID", "Download update", importance);
-        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(channel);
-    }
-
-
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -155,6 +154,8 @@ public class OTAFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initRetroFit();
+        abUpdater = ABUpdater.getInstance(requireContext());
         lottieAnimationView = view.findViewById(R.id.lottie_anim);
         Button checkUpdateButton = view.findViewById(R.id.test_button);
         checkChangeLogButton = view.findViewById(R.id.changelog_button);
@@ -173,9 +174,21 @@ public class OTAFragment extends Fragment {
         downloadButton.setOnClickListener(l -> {
             if (file.exists()) {
                 downloadButton.setText(getString(R.string.flash_update_button));
-                InstallZip(file.getAbsolutePath());
-                RebootDialog dialog = new RebootDialog();
-                dialog.show(requireFragmentManager(), null);
+                try {
+                    if (isABUpdate(file) && isABDevice()) {
+                        abUpdater.install(file.getAbsolutePath());
+                        RebootDialog dialog = new RebootDialog();
+                        dialog.show(requireFragmentManager(), null);
+                    } else {
+                        InstallZip(file.getAbsolutePath());
+                        RebootDialog dialog = new RebootDialog();
+                        dialog.show(requireFragmentManager(), null);
+                    }
+
+                } catch (IOException e) {
+                    Log.e(TAG, "onViewCreated: Error flashing.", e);
+                }
+
 
             } else {
                 Uri url = Uri.parse(downloadUrl);

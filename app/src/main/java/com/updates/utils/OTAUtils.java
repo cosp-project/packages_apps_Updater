@@ -17,17 +17,21 @@
 package com.updates.utils;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.PowerManager;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.updates.R;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -36,6 +40,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DecimalFormat;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 import androidx.annotation.NonNull;
 
@@ -180,5 +187,58 @@ public final class OTAUtils {
         } else {
             return context.getString(R.string.size_bytes, bytes);
         }
+    }
+
+    /**
+     * Get the offset to the compressed data of a file inside the given zip
+     *
+     * @param zipFile   input zip file
+     * @param entryPath full path of the entry
+     * @return the offset of the compressed, or -1 if not found
+     * @throws IllegalArgumentException if the given entry is not found
+     */
+    public static long getZipEntryOffset(ZipFile zipFile, String entryPath) {
+        // Each entry has an header of (30 + n + m) bytes
+        // 'n' is the length of the file name
+        // 'm' is the length of the extra field
+        final int FIXED_HEADER_SIZE = 30;
+        Enumeration<? extends ZipEntry> zipEntries = zipFile.entries();
+        long offset = 0;
+        while (zipEntries.hasMoreElements()) {
+            ZipEntry entry = zipEntries.nextElement();
+            int n = entry.getName().length();
+            int m = entry.getExtra() == null ? 0 : entry.getExtra().length;
+            int headerSize = FIXED_HEADER_SIZE + n + m;
+            offset += headerSize;
+            if (entry.getName().equals(entryPath)) {
+                return offset;
+            }
+            offset += entry.getCompressedSize();
+        }
+        Log.e(TAG, "Entry " + entryPath + " not found");
+        throw new IllegalArgumentException("The given entry was not found");
+    }
+
+    public static void createNotificationChannel(Context context, String channelId, String channelName) {
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+        notificationManager.createNotificationChannel(channel);
+    }
+
+    public static boolean isABDevice() {
+        return SystemProperties.getBoolean(Constants.PROP_AB_DEVICE, false);
+    }
+
+    public static boolean isABUpdate(ZipFile zipFile) {
+        return zipFile.getEntry(Constants.AB_PAYLOAD_BIN_PATH) != null &&
+                zipFile.getEntry(Constants.AB_PAYLOAD_PROPERTIES_PATH) != null;
+    }
+
+    public static boolean isABUpdate(File file) throws IOException {
+        ZipFile zipFile = new ZipFile(file);
+        boolean isAB = isABUpdate(zipFile);
+        zipFile.close();
+        return isAB;
     }
 }

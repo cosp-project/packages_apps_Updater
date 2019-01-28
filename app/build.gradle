@@ -10,6 +10,13 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    lintOptions {
+        ignore 'ProtectedPermissions'
+        // These depend on translations
+        ignore 'ExtraTranslation', 'ImpliedQuantity', 'MissingQuantity', 'MissingTranslation'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -23,6 +30,9 @@ android {
 }
 
 dependencies {
+
+    compileOnly fileTree(dir: 'system_libs/', include: ['*.jar'])
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
