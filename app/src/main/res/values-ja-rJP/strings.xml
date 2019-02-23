@@ -25,7 +25,7 @@
     <string name="toast_update_service_started">アップデータサービス開始</string>
     <string name="toast_update_service_stopped">アップデータサービスが停止しました</string>
     <string name="flash_update_button">更新プログラムをインストールします</string>
-    <string name="dialog_already_downloaded">Update already downloaded. Do you want to flash it?</string>
+    <string name="dialog_already_downloaded">更新は既にダウンロードされました。フラッシュしますか?</string>
     <string name="dialog_reboot_flash">フラッシュして再起動</string>
     <string name="dialog_cancel_flash">キャンセル</string>
 </resources>
